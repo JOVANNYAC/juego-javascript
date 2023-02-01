@@ -1,7 +1,7 @@
 #titulo { height: 30px;
           display: flex;
           justify-content: center;
-          padding: 5px 20px;
+          padding: 5px;
 }
 
 #titulo h1{
@@ -64,7 +64,8 @@ body {
   }
   
   p {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0;
     width: 100%;
   }
