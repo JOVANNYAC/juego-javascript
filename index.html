@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>Juego online basado en juegos friv</title>
+    <title>😎 Juego JOVANNY A. C.</title>
 </head>
 <body>
     
-    <div class="messages">
+    
 
-        <p>Vidas: <span id="lives"></span> </p>
-        <p>Tiempo: ⏰ <span id="time"></span></p>
-        <p>Record: 🏆 <span id="record"></span></p>
-        <p id="result"></p>
+<div class="game-container">
+    <div id="titulo">
+        <h1>Juego version 1.0 enero 2023 JOVANNY A.C. </h1>
     </div>
-    <div class="game-container">
         <canvas id="game"></canvas>
+        <div class="btn-reset">
+            <button class="reset inactive" onclick="location.reload()">Volver a Jugar</button>
+        </div>
 
     <div class="btns">
         <button id="up">Arriba</button>
@@ -25,14 +26,19 @@
         <button id="right">Derecha</button>
         <button id="down">Abajo</button>
     </div> 
-    
-    <div id="titulo">
-        <h1>Juego version 1.0 enero 2023 JOVANNY A.C. </h1>
+    <div class="messages">
+
+        <p>Vidas: <span id="lives"></span> </p>
+        <p>Tiempo: ⏰ <span id="time"></span></p>
+        <p>Record: 🏆 <span id="record"></span></p>
+        <p id="result"></p>
     </div>
+    
+    
 
     <script src="./maps.js"></script>
     <script src="./game.js"></script>
-
 </div>
+
 </body>
 </html>

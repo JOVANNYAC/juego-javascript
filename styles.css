@@ -1,13 +1,20 @@
+.inactive {
+  display:none;
+}
 #titulo { height: 30px;
           display: flex;
           justify-content: center;
           padding: 5px;
 }
 
-#titulo h1{
-  font-size:small;
-text-align: center;
+#titulo, .btn-reset{
+  width: 100%;
+  display: flex;
+  justify-content: center;
   
+}
+h1{
+  font-size:small;
 }
 
 body {
@@ -41,6 +48,9 @@ body {
     margin: 0 auto;
     width: 100%;
   }
+  .btn-reset{
+
+  }
   
   button {
     background-color: #fdef05;
@@ -72,5 +82,8 @@ body {
   
   @media (max-width: 440px) {
     button { margin-top: 5px; }
-    #up, #down { margin-left: 100%; margin-right: 100%; }
+    #up, #down { margin-left: 100%; margin-right: 100%;}
+    #up{margin-bottom: 25px;}
+    #down {margin-top: 25px;}
+    
   }

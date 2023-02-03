@@ -7,14 +7,15 @@ const btnDown = document.querySelector('#down');
 const spanLives = document.querySelector('#lives');
 const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
-const pResult = document.querySelector('#result')
+const pResult = document.querySelector('#result');
+const btnReinicio = document.querySelector('.reset');
 
 let canvasSize;
 let elementsSize;
 let level = 0;
 let lives = 3;
 
-let timeStart;
+let timeStart = undefined;
 let timePlayer;
 let timeInterval; 
 
@@ -51,6 +52,8 @@ function setCanvasSize(){
 
 }
 
+
+
 function startGame(){
    
     game.font = (elementsSize-5) + 'px Verdana';
@@ -62,11 +65,13 @@ if(!map){
     return;
 }
 
-if(!timeStart){
-    timeStart = Date.now();
-    timeInterval = setInterval(showTime, 100);
-    sohwRecord();
-}
+
+    if(!timeStart){
+        timeStart = Date.now();
+        timeInterval = setInterval(showTime, 100);
+        sohwRecord();
+    }
+
 
     const mapRows = map.trim().split('\n');
     const mapsRowsCols = mapRows.map(row => row.trim().split(''));
@@ -105,6 +110,7 @@ if(!timeStart){
     });
    movePlayer() ;
 }
+alert('Inicia el juego, 😎 muevete en los mapas sin tocar las bombas💣 tienes tres vidas💚 para alcanzar un nuevo record🏆');
 
 function movePlayer() {
     const giftCollisionX = playerPosition.x.toFixed() == giftPosition.x.toFixed();
@@ -138,6 +144,7 @@ function subirNivel(){
 }
 
  function gameWin(){
+    btnReinicio.classList.remove('inactive');
     console.log("GANASTE, FIN DEL JUEGO");
     clearInterval(timeInterval);
 
@@ -186,12 +193,17 @@ function subirNivel(){
  }
 
  function showTime(){
-   spanTime.innerHTML = Date.now() - timeStart;
+    
+        spanTime.innerHTML = Date.now() - timeStart;
+    
+   
  }
 
  function sohwRecord(){
     spanRecord.innerHTML = localStorage.getItem('record_time');
  }
+
+
 window.addEventListener('keydown', moveByKeys);
 btnUp.addEventListener('click', moveUp);
 btnLeft.addEventListener('click', moveLeft);
