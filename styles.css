@@ -105,7 +105,7 @@ body {
   
   @media (max-width: 440px) {
     button { margin-top: 5px; }
-    #up, #down { margin-left: 100%; margin-right: 100%;}
+    #up, #down { margin-left: 100%; margin-right: 100%}
     #up{margin-bottom: 25px;}
     #down {margin-top: 25px;}
     
