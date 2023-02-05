@@ -1,20 +1,45 @@
 .inactive {
   display:none;
 }
-#titulo { height: 30px;
+
+.inactiveBtns{
+  opacity: 0;
+
+}
+
+
+#titulo { height: auto;
           display: flex;
           justify-content: center;
           padding: 5px;
 }
 
-#titulo, .btn-reset{
+#titulo{
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
+
+.btn-reset{
+  height: auto;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  position:absolute;
+}
+ .reset {
+  padding: 10px;
+  border-radius: 8px;
+  border: 6px solid #ff6600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  background: indigo;
+ }
+
+
 h1{
   font-size:small;
+  overflow: hidden;
 }
 
 body {
@@ -46,13 +71,11 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
+    padding-bottom: 0;
     width: 100%;
   }
-  .btn-reset{
-
-  }
   
-  button {
+  .botonMovimiento {
     background-color: #fdef05;
     border-radius: 8px;
     border-color: #ff6600;

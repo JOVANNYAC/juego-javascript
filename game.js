@@ -9,6 +9,7 @@ const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
 const pResult = document.querySelector('#result');
 const btnReinicio = document.querySelector('.reset');
+const ocultaDivBtns = document.querySelector('.btns');
 
 let canvasSize;
 let elementsSize;
@@ -129,7 +130,12 @@ function movePlayer() {
 
 
  if (enemyCollision){
-leveFail();
+    game.fillText(emojis['BOMB_COLLISION'],playerPosition.x+elementsSize, playerPosition.y+elementsSize);
+    game.fillText(emojis['BOMB_COLLISION'],playerPosition.x-elementsSize, playerPosition.y-elementsSize);
+    game.fillText(emojis['BOMB_COLLISION'],playerPosition.x+elementsSize, playerPosition.y-elementsSize);
+    game.fillText(emojis['BOMB_COLLISION'],playerPosition.x-elementsSize, playerPosition.y+elementsSize);
+    game.fillText(emojis['PLAYER_COLISION'],playerPosition.x, playerPosition.y);
+     setTimeout(() => leveFail(), 400) ;
     
  }
 
@@ -144,10 +150,10 @@ function subirNivel(){
 }
 
  function gameWin(){
-    btnReinicio.classList.remove('inactive');
     console.log("GANASTE, FIN DEL JUEGO");
     clearInterval(timeInterval);
-
+    ocultarMostarBtns ();
+    
     const recordTime = localStorage.getItem('record_time');
     const playerTime = Date.now() - timeStart;
 
@@ -155,22 +161,28 @@ function subirNivel(){
        
         if (recordTime >= playerTime){
             localStorage.setItem('record_time', playerTime);
-            pResult.innerHTML = 'SUPERASTE EL RECORD';
+            pResult.innerHTML = 'SUPERASTE EL RECORD 🤩👏👏🏆';
         } else {
-            pResult.innerHTML = 'lo siento, no superaste el record';
+            pResult.innerHTML = 'lo siento, no superaste el record 😅';
         }
     } else {
         localStorage.setItem('record_time', playerTime);
-        pResult.innerHTML = 'Primera vez? Muy bien, intenta superar tu tiempo';
+        pResult.innerHTML = 'Primera vez? Muy bien, intenta superar tu tiempo 👏🏆';
     }
     console.log({recordTime, playerTime});
+   
 
  } 
 
 
+function ocultarMostarBtns(){
+    btnReinicio.classList.remove('inactive');
+    ocultaDivBtns.classList.add('inactiveBtns');
+    
+}
+
  function leveFail(){
     lives--;
-    console.log("chocaste con un enemigo");
     if (lives <= 0){
         level = 0;
         lives = 3;
